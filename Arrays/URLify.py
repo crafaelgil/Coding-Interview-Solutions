@@ -8,16 +8,30 @@
 #str = 'ab cd e      '
 #str = 'ab%20cd e  cd'
 #A bit difficult to implement
-#Other solution requires an extra array. Just copy each element from str to arr and when see a white space just write '%20' and then keep oopyng chars
+#Other solution requires an extra array. Just copy each element from str to arr and when see a white space just write '%20' and then keep copyng chars
 #O(len(str)) time but O(len(str)) space
 #On average it is more likely to have numChars > numBlanckSpaces => O(numChars^2) -> Slow
+#Note that python strings are inmutable => Convert string to list
 
 class Solution:
   def __init__(self,s):
     self.s = s
   
   def URLify(self):
-    for i in range(len(self.s)):
-      if self.s[i] == ' ':
-        for j in range(i+1,len(self.s)):
-          self.s[i+2] = self.s[j]
+    strLen = len(self.s.strip())
+    charList = list(self.s)
+    placeIndex = len(self.s)
+
+    for i in range(strLen, 0, -1):
+      if charList[i] == " ":
+        charList[placeIndex - 3 : placeIndex] = "%20"
+        placeIndex-=3
+      else:
+        charList[placeIndex - 1] = charList[i]
+        placeIndex-=1
+    
+    return ''.join(charList)
+
+testString = "a b c d         "
+solution = Solution(testString)
+print(solution.URLify())
