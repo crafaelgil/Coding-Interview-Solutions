@@ -1,5 +1,5 @@
 #Basic idea: Run througth the entire string and count the number of occurences of a particular char
-#ao(len(str)) solution. I do not think we can do better than this since we have to check every char of the string
+#O(len(str)) solution. I do not think we can do better than this since we have to check every char of the string
 #Strings are inmutable => need to conver to list
 #Iterate over the list
 #Create new hashmap
@@ -17,10 +17,10 @@ class Solution:
         compressedStr.append(self.s[i-1] + str(counter))
         counter = 0
       counter+=1
-    
+
     if counter:
       compressedStr.append(self.s[-1] + str(counter))
-    
+
     return min(self.s, ''.join(compressedStr), key=len)
 
 s = "aabcccccaaa"
