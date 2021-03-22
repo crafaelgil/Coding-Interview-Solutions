@@ -2,7 +2,7 @@
 #str = 'a b c d         '
 #str = 'aba  jsbs j s                '
 #Need to shift next chars to the rigth -> O(numBlankSpaces * numChars) = O(numBlankSpaces * (len(str) - numBlankSpaces))
-#At the end of the string there is 3k number of white spaces where k is the number of blanck spaces in hte 'original string'
+#At the end of the string there is 3k number of white spaces where k is the number of blanck spaces in the 'original string'
 #When I see a blanck space I copy the next two elements of the string to the end of the array, then subsitute ' ' with '%20'
 #Array lookup takes O(1) because of some python implementation
 #str = 'ab cd e      '
@@ -16,7 +16,7 @@
 class Solution:
   def __init__(self,s):
     self.s = s
-  
+
   def URLify(self):
     strLen = len(self.s.strip())
     charList = list(self.s)
@@ -29,7 +29,7 @@ class Solution:
       else:
         charList[placeIndex - 1] = charList[i]
         placeIndex-=1
-    
+
     return ''.join(charList)
 
 testString = "a b c d         "
