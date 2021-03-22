@@ -4,7 +4,7 @@
 #check len(str1) == len(str2) ? Possible ? False -> O(1)
 #Scan all chars of str1 and store them in hashmap1 -> O(len(str1))
 #Scan all chars of str2 and store them in hashmap2 -> O(len(str2))
-#For every key in hashmap1 check if value is the same as in hashmap2 (if exists) -> O(1) for lookup -> O(len(hashmap1.keys))
+#For every key in hashmap1 check if value is the same as in hashmap2 (if exists -> O(1) for lookup -> O(len(hashmap1.keys))
 #If for every key in hashmap1 has the same value as in hashmap2 => True oherwise False
 #len(hashmap1.keys) has to be equal to len(hasmap2.keys)
 #O(1 + len(str1) + len(str2) + len(hashmap1.keys or hashmap2.keys))
