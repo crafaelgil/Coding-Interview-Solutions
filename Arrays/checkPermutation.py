@@ -15,7 +15,7 @@ class Solution:
   def __init__(self, str1, str2):
     self.str1 = str1
     self.str2 = str2
-  
+
   def checkPermutation(self):
     if not len(self.str1) == len(self.str2):
       return False
@@ -33,7 +33,7 @@ class Solution:
           hashmap2[c] = 1
         else:
           hashmap2[c]+=1
-      
+
       for c in hashmap1:
         if c in hashmap2:
           if not hashmap1[c] == hashmap2[c]:
@@ -46,4 +46,4 @@ str1 = 'abcdef'
 str2 = 'abfdee'
 solution = Solution(str1, str2)
 print(solution.checkPermutation())
-      
+
