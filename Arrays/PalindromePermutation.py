@@ -5,7 +5,7 @@
 #Odd length palindromes can be split in two 'identical' halves aside form ordering of chars
 #Each char in the left half must exist in the rigth half and viceversa
 #Then if the length of newStr is even -> Check if every char has an even number of occurences
-#This is enought since we can just take, for example abddcabc -> {a:2, b:2, c:2, d:2} -> Construct "abcddcba" -> Output true
+#This is enough since we can just take, for example abddcabc -> {a:2, b:2, c:2, d:2} -> Construct "abcddcba" -> Output true
 #Second case is when the length of newStr is odd -> The MUST exist ONLY ONE single-coccurence char, the rest must have an even num of occurences
 #Case 1: 0...len(newStr)/2
 #Case 2: 0...floor(len(newStr+1))
