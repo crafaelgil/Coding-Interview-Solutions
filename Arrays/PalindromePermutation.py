@@ -13,7 +13,8 @@
 #Space: O(len(newStr)) worst case "abcdbe"
 #I don't think we can do better since we have to scan each char at least once
 #Checking len of str is O(1)
-#SOlution above is partially wrong
+#Solution above is partially wrong
+
 #We need ot check the whole string -> O(len(newStr)))
 
 class Solution:
