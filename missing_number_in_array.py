@@ -1,6 +1,3 @@
-from unittest import expectedFailure
-
-
 class Solution:
   def __init__(self, arr):
     self.arr = arr
