@@ -5,18 +5,31 @@ class Solution:
     self.arr = arr
 
   def find_next_greater_elements(self, arr):
+    # if not arr:
+    #   return
+
+    # result = [-1] * len(arr)
+
+    # stack = deque()
+
+    # for i in range(len(arr)):
+    #   while stack and arr[stack[-1]] < arr[i]:
+    #     result[stack[-1]] = arr[i]
+    #     stack.pop()
+
+    #   stack.append(i)
+
+    # return result
     if not arr:
       return
 
     result = [-1] * len(arr)
-
-    stack = deque()
+    stack = []
 
     for i in range(len(arr)):
       while stack and arr[stack[-1]] < arr[i]:
         result[stack[-1]] = arr[i]
         stack.pop()
-
       stack.append(i)
 
     return result
