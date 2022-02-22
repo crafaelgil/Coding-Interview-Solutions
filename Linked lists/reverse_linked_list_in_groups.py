@@ -29,18 +29,17 @@ class LinkedList:
       return prev
 
     def push(self, new_data):
-        new_node = Node(new_data)
-        new_node.next = self.head
-        self.head = new_node
+      new_node = Node(new_data)
+      new_node.next = self.head
+      self.head = new_node
 
     def printList(self):
-        temp = self.head
-        while(temp):
-            print(temp.data,end=' ')
-            temp = temp.next
+      temp = self.head
+      while(temp):
+        print(temp.data,end=' ')
+        temp = temp.next
 
 
-# Driver program
 llist = LinkedList()
 llist.push(9)
 llist.push(8)
