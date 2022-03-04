@@ -1,7 +1,5 @@
 from collections import deque
 
-from numpy import size
-
 class Node:
   def __init__(self, data = None, left = None, right = None):
     self.data = data
