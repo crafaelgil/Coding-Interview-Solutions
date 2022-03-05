@@ -15,4 +15,3 @@ X = 'OldSite:GeeksforGeeks.org'
 Y = 'NewSite:GeeksQuiz.com'
 
 print(find_longest_common_substring(X,Y))
-print(recursive_solution(len(X), len(Y), 0))
