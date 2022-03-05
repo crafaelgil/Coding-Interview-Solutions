@@ -3,8 +3,8 @@ def find_longest_common_substring(X,Y):
 
   result = 0
 
-  for i in range(1, len(X)):
-    for j in range(1,len(Y)):
+  for i in range(1, len(X)+1):
+    for j in range(1,len(Y)+1):
       if X[i-1] == Y[j-1]:
         table[i][j] = table[i-1][j-1] + 1
         result = max(result, table[i][j])
