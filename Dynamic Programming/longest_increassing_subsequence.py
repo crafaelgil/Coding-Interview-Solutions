@@ -1,3 +1,6 @@
+from numpy import append
+
+
 def find_longest_subsequence(arr):
   if not arr:
     return 0
@@ -14,5 +17,38 @@ def find_longest_subsequence(arr):
 
   return max(L)
 
-arr = [0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+arr = [2, 6, 3, 4, 1, 2, 9, 5, 8]
 print(find_longest_subsequence(arr))
+
+
+def non_dp_solution(arr):
+  if not arr:
+    return 0
+
+  S = [arr[0]]
+
+  for i in range(1, len(arr)):
+    if arr[i] > S[-1]:
+      S.append(arr[i])
+    else:
+      smallest_larger = find_smallesr_larger(S,arr[i])
+      S[smallest_larger] = arr[i]
+
+  return len(S)
+
+
+def find_smallesr_larger(S, a):
+  l, r = 0, len(S)-1
+
+  while l + 1 < r:
+    m = (l+r)//2
+
+    if a <= S[m]:
+      r = m
+    else:
+      l = m
+
+  return r
+
+print(non_dp_solution(arr))
+
