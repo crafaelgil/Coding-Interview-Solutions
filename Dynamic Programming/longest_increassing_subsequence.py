@@ -31,13 +31,13 @@ def non_dp_solution(arr):
     if arr[i] > S[-1]:
       S.append(arr[i])
     else:
-      smallest_larger = find_smallesr_larger(S,arr[i])
+      smallest_larger = find_smallest_larger(S,arr[i])
       S[smallest_larger] = arr[i]
 
   return len(S)
 
 
-def find_smallesr_larger(S, a):
+def find_smallest_larger(S, a):
   l, r = 0, len(S)-1
 
   while l + 1 < r:
