@@ -1,13 +1,18 @@
-def min_num_coins(C, V):
-  if V == 0:
-    return 0
+def min_num_coins(coins, amount):
+  dp = [amount + 1] * (amount + 1)
 
-  for c in C:
-    if c <= V:
-      min_coins = min(min_coins, 1 + min_num_coins(C, V - c))
-  return min_coins
+  dp[0] = 0
 
-C = [25,10,5]
-V = 30
+  for a in range(1, amount+1):
+    for c in coins:
+      if a - c >= 0:
+        dp[a] = min(dp[a], 1 + dp[a-c])
 
-print(min_num_coins(C,V))
+  return dp[amount]
+
+coins = [1,2,3,4]
+amount = 9
+
+print(min_num_coins(coins, amount))
+
+
