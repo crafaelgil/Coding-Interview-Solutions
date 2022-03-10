@@ -16,12 +16,14 @@ def find_rectangles(grid):
         while row + 1 < num_rows and grid[row+1][col] == 0:
           row += 1
         coordinates.append([col, row])
+        if coordinates[0] == coordinates[1]:
+          coordinates.pop()
         return coordinates
 
 grid = [
   [1,1,1,1,1],
-  [1,0,0,0,1],
-  [1,0,0,0,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1],
   [1,1,1,1,1]
 ]
 
