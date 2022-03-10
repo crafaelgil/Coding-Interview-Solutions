@@ -1,3 +1,8 @@
+from pickle import TRUE
+
+from numpy import True_
+
+
 def find_rectangles(grid):
   if not grid or len(grid) == 0:
     return []
@@ -65,6 +70,54 @@ def find_multiple_rectangles(grid):
 
   return cooordinates
 
+def find_multiple_rectangles_faster(grid):
+  if not grid or len(grid) == 0:
+    return []
+
+  num_rows = len(grid)
+  num_cols = len(grid[0])
+
+  coordinates = []
+  is_inside_rectangle_already_counted = False
+
+  for row in range(num_rows):
+    for col in range(num_cols):
+      new_rectangle_coordinates = []
+
+      if grid[row][col] == 0:
+        #Check weather cell belongs to a rectangle previously counted
+        for rectangle_coordinate in coordinates:
+          if len(rectangle_coordinate) == 2:
+            top_left = rectangle_coordinate[0]
+            bottom_right = rectangle_coordinate[1]
+
+            if top_left[1] <= row <= bottom_right[1] and top_left[0] <= col <= bottom_right[0]:
+              is_inside_rectangle_already_counted = True
+            else:
+              is_inside_rectangle_already_counted = False
+          elif rectangle_coordinate == [col, row]:
+            is_inside_rectangle_already_counted = True
+          else:
+            is_inside_rectangle_already_counted = False
+        #Update answer
+        if not is_inside_rectangle_already_counted:
+          top_left_coordinate = [col, row]
+          new_rectangle_coordinates.append(top_left_coordinate)
+
+          while col + 1 < num_cols and grid[row][col+1] == 0:
+            col += 1
+          while row + 1 < num_rows and grid[row+1][col] == 0:
+            row += 1
+
+          bottom_right_coordinate = [col, row]
+          new_rectangle_coordinates.append(bottom_right_coordinate)
+
+          if top_left_coordinate == bottom_right_coordinate:
+            new_rectangle_coordinates.pop()
+
+          coordinates.append(new_rectangle_coordinates)
+
+  return coordinates
 
 grid = [
   [1,1,1,1,1],
@@ -76,4 +129,6 @@ grid = [
 
 # print(find_rectangles(grid))
 
-print(find_multiple_rectangles(grid))
+# print(find_multiple_rectangles(grid))
+
+print(find_multiple_rectangles_faster(grid))
