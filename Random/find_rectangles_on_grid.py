@@ -34,9 +34,11 @@ def find_multiple_rectangles(grid):
 
   cooordinates = []
 
+  num_calls = 0
 
   for row in range(num_rows):
     for col in range(num_cols):
+      num_calls+=1
       new_rectangle_coordinates = []
 
       if grid[row][col] == 0:
@@ -45,8 +47,10 @@ def find_multiple_rectangles(grid):
 
         #Find lower right coordinate
         while col + 1 < num_cols and grid[row][col+1] == 0:
+          num_calls+=1
           col += 1
         while row + 1 < num_rows and grid[row+1][col] == 0:
+          num_calls+=1
           row += 1
 
         #Update
@@ -62,12 +66,13 @@ def find_multiple_rectangles(grid):
         #Update cell value to avoid overcount
         for row in range(top_left_coordinate[1], lower_right_coordinate[1]+1):
           for col in range(top_left_coordinate[0], lower_right_coordinate[0]+1):
+            num_calls+=1
             grid[row][col] = 1
 
         #Update row and col values to resume lookup
         row = top_left_coordinate[1]
         col = lower_right_coordinate[0]
-
+  print(num_calls)
   return cooordinates
 
 def find_multiple_rectangles_faster(grid):
@@ -80,8 +85,11 @@ def find_multiple_rectangles_faster(grid):
   coordinates = []
   is_inside_rectangle_already_counted = False
 
+  num_calls = 0
+
   for row in range(num_rows):
     for col in range(num_cols):
+      num_calls+=1
       new_rectangle_coordinates = []
 
       if grid[row][col] == 0:
@@ -105,8 +113,10 @@ def find_multiple_rectangles_faster(grid):
           new_rectangle_coordinates.append(top_left_coordinate)
 
           while col + 1 < num_cols and grid[row][col+1] == 0:
+            num_calls+=1
             col += 1
           while row + 1 < num_rows and grid[row+1][col] == 0:
+            num_calls+=1
             row += 1
 
           bottom_right_coordinate = [col, row]
@@ -117,6 +127,7 @@ def find_multiple_rectangles_faster(grid):
 
           coordinates.append(new_rectangle_coordinates)
 
+  print(num_calls)
   return coordinates
 
 grid = [
@@ -129,6 +140,6 @@ grid = [
 
 # print(find_rectangles(grid))
 
-# print(find_multiple_rectangles(grid))
+print(find_multiple_rectangles(grid))
 
 print(find_multiple_rectangles_faster(grid))
