@@ -1,8 +1,3 @@
-from pickle import TRUE
-
-from numpy import True_
-
-
 def find_rectangles(grid):
   if not grid or len(grid) == 0:
     return []
@@ -140,6 +135,8 @@ grid = [
 
 # print(find_rectangles(grid))
 
+print(find_multiple_rectangles_faster(grid))
+
 print(find_multiple_rectangles(grid))
 
-print(find_multiple_rectangles_faster(grid))
+
