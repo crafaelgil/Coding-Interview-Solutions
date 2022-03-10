@@ -1,48 +1,28 @@
-def find_single_rectangle(grid):
-  if not grid:
+def find_rectangles(grid):
+  if not grid or len(grid) == 0:
     return []
 
-  num_cols = len(grid[0])
   num_rows = len(grid)
+  num_cols = len(grid[0])
 
-  ans = []
+  coordinates = []
 
   for row in range(num_rows):
     for col in range(num_cols):
       if grid[row][col] == 0:
-        ans.append([col, row])
-        while row < num_rows and col < num_cols and grid[row+1][col+1] == 0:
-          row += 1
+        coordinates.append([row, col])
+        while col + 1 < num_cols and grid[row][col+1] == 0:
           col += 1
-        ans.append([col, row])
-        return ans
+        while row + 1 < num_rows and grid[row+1][col] == 0:
+          row += 1
+        coordinates.append([col, row])
+        return coordinates
 
-  return []
-
-def find_multiple_rectangles(grid):
-  if not grid:
-    return []
-
-  num_cols = len(grid[0])
-  num_rows = len(grid)
-
-  rectangles = []
-
-
-
-
-grid1 = [
+grid = [
   [1,1,1,1,1],
-  [1,0,0,1,1],
-  [1,0,0,1,1],
+  [1,0,0,0,1],
+  [1,0,0,0,1],
   [1,1,1,1,1]
 ]
 
-grid2 = [
-  [1,1,1,1,1],
-  [1,0,0,1,1],
-  [1,0,0,1,1],
-  [1,1,1,1,0]
-]
-
-print(find_single_rectangle(grid1))
+print(find_rectangles(grid))
