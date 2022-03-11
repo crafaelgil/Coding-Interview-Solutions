@@ -64,41 +64,6 @@ user5 = ["a"]
 user6 = ["/pink","/orange","/six","/plum","/seven","/tan","/red", "/amber"]
 
 
-
-if findContiguousHistory(user0, user1) == ["/pink", "/register", "/orange"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user0, user2) == []:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user0, user0) == ["/start", "/green", "/blue", "/pink", "/register", "/orange", "/one/two"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user2, user1) == ["a"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user5, user2) == ["a"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user3, user4) == ["/plum", "/blue", "/tan", "/red"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user4, user3) == ["/plum", "/blue", "/tan", "/red"]:
-  print("OK")
-else:
-  print(False)
-if findContiguousHistory(user3, user6) == ["/tan", "/red", "/amber"]:
-  print("OK")
-else:
-  print(False)
-
-
 # #Time Complexity: O(n*len(subdomains))
 # #Space Complexity : O(n*len(subdomains))
 # def calculateClicksByDomain(counts):
