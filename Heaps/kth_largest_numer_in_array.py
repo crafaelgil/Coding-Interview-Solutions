@@ -1,3 +1,4 @@
+from audioop import reverse
 import heapq as hp
 
 def find_kth_largest_element(nums, k):
@@ -13,3 +14,8 @@ def find_kth_largest_element(nums, k):
     hp.heappop(nums)
 
   return nums[0]
+
+def simpler_solution(nums, k):
+  nums.sort(reverse=True)
+
+  return nums[k-1]
