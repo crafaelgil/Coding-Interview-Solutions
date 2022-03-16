@@ -10,10 +10,7 @@ def calculate(self, s: str) -> int:
           num = num * 10 + int(s[i])
       elif s[i] == '+' or s[i] == '-':
           result += sign * num
-          if s[i] == '+':
-              sign = stack[-1]
-          else:
-              sign = -stack[-1]
+          sign = stack[-1] if s[i] == '+' else -stack[-1]
           num = 0
       elif s[i] == '(':
           stack.append(sign)
