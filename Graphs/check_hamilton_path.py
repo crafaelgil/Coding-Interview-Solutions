@@ -52,7 +52,6 @@ def findHamiltonianPaths(graph, n):
 
         hamiltonianPaths(graph, start, visited, path, n)
 
-
 if __name__ == '__main__':
 
     # consider a complete graph having 4 vertices
